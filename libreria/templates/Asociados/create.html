@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+    
+{% block titulo %} Agregar Nuevo Asociado  {% endblock %}
+    
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header">
+        Crear Asociado
+    </div>
+    <div class="card-body">
+        <h4 class="card-title"></h4>
+{% include 'Asociados/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        FonlunaWeb 2023
+    </div>
+</div>
+
+{% endblock %}

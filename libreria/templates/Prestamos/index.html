@@ -1,0 +1,57 @@
+{% extends "base.html"%}
+
+{% block titulo %}  Prestamos  {% endblock %}
+    
+{% block contenido %} 
+
+
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="button" class="btn btn-info" href="{% url 'create' %}" role='button'>Agregar Asociado</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Asociados</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>No. Documento</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Beneficiario</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for asociadosItem in asociadosView %}
+                <tr>
+                    <td>{{ asociadosItem.id }}</td>
+                    <td>{{ asociadosItem.TipoDocument }}</td>
+                    <td>{{ asociadosItem.Nombre }}</td>
+                    <td>{{ asociadosItem.Direccion }}</td>
+                    <td>{{ asociadosItem.Beneficiario }}</td>
+                    <td>{{ asociadosItem.FechaIngreso }}</td>
+                    <td>
+                        <a name="button" class="btn btn-info" href="{% url 'edit' asociadosItem.id %}" role="button">Editar</a> 
+                        <a name="button" class="btn btn-danger" href="{% url 'eliminar' asociadosItem.id %}" role="button">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td scope="row"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+   <div class="card-footer text-muted">
+        FonlunaWeb 2023
+    </div> 
+</div>
+
+{% endblock %}
